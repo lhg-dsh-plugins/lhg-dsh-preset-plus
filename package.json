@@ -1,0 +1,64 @@
+{
+  "name": "@rain-kl/dsh-preset-plus",
+  "version": "0.1.6",
+  "description": "DeepSeek Harness universal preset enhancement plugin: an editable preset editor (system/user/assistant entries + camouflage model output prepopulation)",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "presets",
+    "preset",
+    "scripts",
+    "docs",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/assert-build.mjs",
+    "lint": "node --check lib/index.js && node --check lib/core.js && node --check client.js",
+    "release": "node scripts/release.mjs"
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "preset",
+    "jailbreak",
+    "prefill",
+    "agent"
+  ],
+  "author": "Rain-kl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lhg-dsh-plugins/lhg-dsh-preset-plus"
+  },
+  "bugs": {
+    "url": "https://github.com/Rain-kl/dsh-preset-plus/issues"
+  },
+  "homepage": "https://github.com/Rain-kl/dsh-preset-plus#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  }
+}
